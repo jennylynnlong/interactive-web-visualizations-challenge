@@ -113,6 +113,7 @@ function buildBubbleChart(sample)
 
 }
 
+/*
 // function that builds gauge chart
 function buildGaugeChart(sample)
 {
@@ -151,55 +152,6 @@ function buildGaugeChart(sample)
 
     });
 }
-
-/*
-// function that builds gauge chart
-function buildGaugeChart(sample)
-{
-    // use d3.json in order to get data
-    d3.json("samples.json").then((data) => {
-        
-        // grab metadata
-        let gaugeData = data.metadata;
-                
-        // filter based on value of that one sample
-        let result = gaugeData.filter(sampleResult => sampleResult.id == sample);
-        
-        // access index 0 from array
-        let resultData = result[0];
-        //console.log(resultData);
-
-        // get otu_ids, otu_labels, and sample_values
-        //let metaValues = Object.values(resultData);
-        //console.log(metaValues);
-
-        // build the gauge chart
-
-        
-        let bubbleChart = {
-            y: sample_values,
-            x: otu_ids,
-            text: otu_labels,
-            mode: "markers",
-            marker: {
-                size: sample_values,
-                color: otu_ids,
-                colorscale: "Earth"
-            }
-        };
-
-        let layout = {
-            title: `Bacteria Cultures Per Sample for Test Subject ${sample}`,
-            hovermode: "closest",
-            xaxis: {title: "OTU ID"}
-        };
-
-        // render plot to div tag with id "bubble"
-        Plotly.newPlot("bubble", [bubbleChart], layout);
-        
-    });
-
-}
 */
 
 // function that initializes the dashboard
@@ -232,7 +184,7 @@ function initialize()
         // call function to build bubble chart
         buildBubbleChart(sample1);
         // call function to build gauge chart
-        buildGaugeChart(sample1);
+        //buildGaugeChart(sample1);
     });
 
 }
@@ -247,7 +199,7 @@ function optionChanged(item)
     // call function to build bubble chart
     buildBubbleChart(item);
     // call function to build gauge chart
-    buildGaugeChart(item);
+    // buildGaugeChart(item);
 }
 
 // call initialize function
